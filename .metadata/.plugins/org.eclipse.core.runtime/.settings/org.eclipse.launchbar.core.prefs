@@ -1,0 +1,7 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:versuch_1_blinkende_led Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:versuch_3_interfaces_2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:versuch_3_interfaces Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:versuch_1_hello_world Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-f429zi-systemidentification-framework
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-f429zi-systemidentification-framework/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:nucleo-f429zi-systemidentification-framework/activeLaunchTarget=null\:---
