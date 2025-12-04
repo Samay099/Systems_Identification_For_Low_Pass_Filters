@@ -1,0 +1,6 @@
+../Core/Src/Event.h:19:10:Event::~Event()	1
+../Core/Src/Event.h:19:10:virtual Event::~Event()	1
+../Core/Src/BlueButtonEvent.cpp:15:1:BlueButtonEvent::BlueButtonEvent()	1
+../Core/Src/BlueButtonEvent.cpp:20:1:BlueButtonEvent::~BlueButtonEvent()	1
+../Core/Src/BlueButtonEvent.cpp:20:1:virtual BlueButtonEvent::~BlueButtonEvent()	1
+../Core/Src/BlueButtonEvent.cpp:24:6:virtual void BlueButtonEvent::vHandleEvent()	7

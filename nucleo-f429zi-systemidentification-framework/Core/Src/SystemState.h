@@ -1,0 +1,25 @@
+
+/*
+ * SystemState.h
+ *
+ *  Created on: Nov 24, 2025
+ *      Author: samay099
+ */
+
+#ifndef SRC_SYSTEMSTATE_H_
+#define SRC_SYSTEMSTATE_H_
+
+enum SystemState
+{
+
+	STATE_IDLE,
+	STATE_RUNNING,
+	STATE_CLEANUP,
+	STATE_RESULT,
+	STATE_ERROR,
+};
+
+extern SystemState CurrentState;
+
+
+#endif /* SRC_SYSTEMSTATE_H_ */
