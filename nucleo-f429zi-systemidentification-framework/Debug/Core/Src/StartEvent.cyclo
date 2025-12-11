@@ -1,0 +1,6 @@
+../Core/Src/Event.h:19:10:Event::~Event()	1
+../Core/Src/Event.h:19:10:virtual Event::~Event()	1
+../Core/Src/StartEvent.cpp:16:1:StartEvent::StartEvent()	1
+../Core/Src/StartEvent.cpp:18:6:virtual void StartEvent::vHandleEvent()	2
+../Core/Src/StartEvent.h:15:10:StartEvent::~StartEvent()	1
+../Core/Src/StartEvent.h:15:10:virtual StartEvent::~StartEvent()	1

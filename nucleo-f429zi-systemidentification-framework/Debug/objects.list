@@ -1,5 +1,7 @@
 "./Core/Src/BlueButtonEvent.o"
+"./Core/Src/CancelEvent.o"
 "./Core/Src/Event.o"
+"./Core/Src/StartEvent.o"
 "./Core/Src/SystemStateHandler.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"

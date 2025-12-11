@@ -19,17 +19,15 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "string.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
 #include <queue>
 #include <iostream>
 #include"SystemStateHandler.h"
 #include"SystemState.h"
 #include"BlueButtonEvent.h"
-
-
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
+#include "StartEvent.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,7 +58,8 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
-
+std::queue<Event*> event_queue;
+SystemStateHandler stateHandler;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -118,6 +117,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	  //event queue
+	  if(!event_queue.empty()) {
+		  Event* currentEvent = event_queue.front();
+		  event_queue.pop();
+		  currentEvent->vHandleEvent();
+		  delete currentEvent;
+	  }
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

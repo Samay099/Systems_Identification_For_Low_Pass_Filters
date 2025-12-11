@@ -13,35 +13,43 @@
 SystemState CurrentState = STATE_IDLE;
 
 SystemStateHandler::SystemStateHandler() {
-	// TODO Auto-generated constructor stub
-
+	//leds ausmachen
+	vSetGreenLED(false);
+	vSetRedLED(false);
+	vSetBlueLED(false);
 }
 
-SystemStateHandler::~SystemStateHandler() {
-	// TODO Auto-generated destructor stub
+SystemStateHandler::~SystemStateHandler() {}
+
+//statische instanz um sicherzustellen dass nur mit dieser einen gearbeitet wird
+SystemStateHandler& SystemStateHandler::getObject() {
+	static SystemStateHandler sObject;
+	return sObject;
 }
+
 
 void SystemStateHandler::vSetGreenLED(bool on){
 
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0, on ? GPIO_PIN_SET : GPIO_PIN_RESET);
 
 	//std::cout<<"Green LED is"<<(on ? "on (Idle)" : "off")<<"\n";
 }
 
 void SystemStateHandler::vSetRedLED(bool on){
 
-	HAL_GPIO_WritePin (GPIOB,  GPIO_PIN_14, GPIO_PIN_SET);
+	HAL_GPIO_WritePin (GPIOB,  GPIO_PIN_14, on ? GPIO_PIN_SET : GPIO_PIN_RESET);
 
 	//std::cout<<"Red LED is"<<(on ? "on (Cleanup)" : "off")<<"\n";
 
 }
 void SystemStateHandler::vSetBlueLED(bool on){
 
-	HAL_GPIO_WritePin (GPIOB,  GPIO_PIN_7, GPIO_PIN_SET);
+	HAL_GPIO_WritePin (GPIOB,  GPIO_PIN_7, on ? GPIO_PIN_SET : GPIO_PIN_RESET);
 
 	//std::cout<<"Blue LED is"<<(on ? "on (Result)" : "off")<<"\n";
 
 }
+
 
 void SystemStateHandler::vTransition(SystemState NewState){
 
@@ -63,15 +71,9 @@ void SystemStateHandler::vTransition(SystemState NewState){
 
 		case STATE_RUNNING:
 
-			while(CurrentState == STATE_RUNNING)
-			{
-					HAL_GPIO_WritePin (GPIOB,GPIO_PIN_0,GPIO_PIN_SET);
-					HAL_Delay(500);
-					HAL_GPIO_WritePin (GPIOB,GPIO_PIN_0,GPIO_PIN_RESET);
-					HAL_Delay(500);
-			}
-
+			vSetGreenLED(true); //erstmal anmachen, soll in main aber blinken
 			break;
+
 		case STATE_CLEANUP:
 
 			vSetRedLED(true);
@@ -83,6 +85,12 @@ void SystemStateHandler::vTransition(SystemState NewState){
 			vSetBlueLED(true);
 			//std::cout<<"System is now in"<<NewState<<std::endl;
 			break;
+
+		case STATE_ERROR:
+
+			vSetRedLED(true);
+			break;
+
 		default:
 			//std::cout<<"Unhandled State: " <<NewState<<std::endl;
 			break;
@@ -91,9 +99,3 @@ void SystemStateHandler::vTransition(SystemState NewState){
 	}
 
 }
-
- SystemStateHandler& SystemStateHandler::getObject()
- {
-	 static SystemStateHandler sObject;
-	 return sObject;
- }

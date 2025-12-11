@@ -1,0 +1,6 @@
+../Core/Src/Event.h:19:10:Event::~Event()	1
+../Core/Src/Event.h:19:10:virtual Event::~Event()	1
+../Core/Src/CancelEvent.cpp:14:1:CancelEvent::CancelEvent()	1
+../Core/Src/CancelEvent.cpp:16:6:virtual void CancelEvent::vHandleEvent()	2
+../Core/Src/CancelEvent.h:16:10:CancelEvent::~CancelEvent()	1
+../Core/Src/CancelEvent.h:16:10:virtual CancelEvent::~CancelEvent()	1
