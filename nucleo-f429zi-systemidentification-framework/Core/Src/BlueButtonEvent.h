@@ -15,7 +15,7 @@ public:
 	BlueButtonEvent();
 	virtual ~BlueButtonEvent();
 
-	void vHandleEvent();
+	void vHandleEvent() override;
 };
 
 #endif /* SRC_BLUEBUTTONEVENT_H_ */
